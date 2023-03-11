@@ -11,8 +11,8 @@ function App() {
   return (
     <div className="App">
       <LoginProvider>
-        <Header />
         <BrowserRouter>
+          <Header />
           <Routes>
             <Route path='/Login' element={<Login />} />
             <Route path='/Signup' element={<Signup />} />
