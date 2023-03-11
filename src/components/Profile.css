@@ -1,0 +1,68 @@
+.ProfileContainer {
+  position: absolute;
+  top: 30%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.HeaderContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.TextDecoration {
+  background-color: #ececec;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: justify;
+  width: 400px;
+}
+
+.ClickableText {
+  color: blue;
+  cursor: pointer;
+}
+
+.DetailsContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin-top: 30px;
+  border-bottom: 1px solid gray;
+}
+
+.ContactLine {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.CancelButton {
+  border: 1px solid red;
+  color: red;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.ProfileForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.UpdateButton {
+  width: 100px;
+  margin: 20px 0px;
+  background-color: crimson;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}

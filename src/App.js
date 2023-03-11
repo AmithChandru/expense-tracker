@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import Home from './components/Home';
 import Login from './components/Login';
+import Profile from './components/Profile';
 import Signup from './components/Signup';
 import LoginProvider from './components/Store/LoginProvider';
 
@@ -16,6 +17,7 @@ function App() {
             <Route path='/Login' element={<Login />} />
             <Route path='/Signup' element={<Signup />} />
             <Route path='/' element={<Home />} />
+            <Route path='/Profile' element={<Profile />} />
           </Routes>
         </BrowserRouter>
       </LoginProvider>

@@ -1,6 +1,22 @@
+import { useNavigate } from 'react-router-dom';
+import './Home.css';
+
 const Home = () => {
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/Profile');
+  }
+
   return(
-    <div style={{top: '30%', left: '40%', position: 'absolute'}}>Welcome to Expense Tracker!!!</div>
+    <div className="HomeContainer">
+      <span>Welcome to Expense Tracker!!!</span>
+      <section className='TextDecoration'>
+        <span>Your profile is incomplete. </span>
+        <span className='ClickableText' onClick={handleClick}>Complete now</span>
+      </section>
+    </div>
   )
 }
 
