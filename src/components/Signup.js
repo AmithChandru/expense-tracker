@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Signup.css';
 
 const Signup = () => {
@@ -6,6 +7,11 @@ const Signup = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
+  const navigate = useNavigate();
+
+  const handleNav = () => {
+    navigate('/Login');
+  }
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -54,7 +60,7 @@ const Signup = () => {
           <button className='SignupButton' type='submit'>Sign up</button>
         </form>
       </div>
-      <button className='LoginButton'>
+      <button className='LoginButton' onClick={handleNav}>
         Have an account? Login
       </button>
     </div>
