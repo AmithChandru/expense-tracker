@@ -4,6 +4,7 @@ import LoginContext from "./LoginContext";
 const LoginProvider = (props) => {
 
   const [token, setToken] = useState(null);
+  const [isVerified, setIsVerified] = useState(false);
 
   const handleLogout = () => {
     setToken(null);
@@ -13,10 +14,16 @@ const LoginProvider = (props) => {
     setToken(item);
   }
 
+  const handleIsVerified = () => {
+    setIsVerified(true);
+  }
+
   const LoginCtx = {
     token: token,
     handleLogin: handleLogin,
-    handleLogout: handleLogout
+    handleLogout: handleLogout,
+    isVerified: isVerified,
+    handleIsVerified: handleIsVerified
   }
 
   return (
