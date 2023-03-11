@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <LoginProvider>
         <BrowserRouter>
-          <Header />
+          {/* <Header /> */}
           <Routes>
             <Route path='/Login' element={<Login />} />
             <Route path='/Signup' element={<Signup />} />

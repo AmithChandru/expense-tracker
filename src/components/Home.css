@@ -1,4 +1,4 @@
-.HomeContainer {
+.HomeHeader {
   position: absolute;
   top: 30%;
   width: 100%;
@@ -20,4 +20,20 @@
 .ClickableText {
   color: blue;
   cursor: pointer;
+}
+
+.HomeContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.ExpensesContainer {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.InputContainer {
+  display: flex;
+  flex-direction: row;
 }
