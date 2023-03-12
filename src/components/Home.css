@@ -1,6 +1,4 @@
 .HomeHeader {
-  position: absolute;
-  top: 30%;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -25,12 +23,14 @@
 .HomeContainer {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .ExpensesContainer {
   width: 500px;
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
 }
 
 .InputContainer {

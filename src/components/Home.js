@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
 import LoginContext from './Store/LoginContext';
@@ -11,6 +11,23 @@ const Home = () => {
   const [money, setMoney] = useState(null);
   const [desc, setDesc] = useState(null);
   const [category, setCategory] = useState(null);
+
+  useEffect(() => {
+    fetch('https://react-movies-8029a-default-rtdb.asia-southeast1.firebasedatabase.app/expense.json')
+      .then((res) => {
+        let temp = [];
+        res.json().then((data) => {
+          for (const key in data) {
+            temp.push({
+              money: data[key].money,
+              desc: data[key].desc,
+              category: data[key].category
+            })
+          }
+        })
+        setItems(temp);
+      })
+  })
 
   const handleClick = () => {
     navigate('/Profile');
@@ -40,16 +57,36 @@ const Home = () => {
     })
   }
 
-  const handleAddExpense = () => {
-    let item = {
-      money: money,
-      desc: desc,
-      category: category
-    }
+  const handleAddExpense = async () => {
+    await fetch('https://react-movies-8029a-default-rtdb.asia-southeast1.firebasedatabase.app/expense.json', {
+      method: 'POST',
+      body: JSON.stringify({
+        money: money,
+        desc: desc,
+        category: category
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+      }).then((res) => {
+        if (res.ok) {
+          res.json().then((data) => {
+            console.log(data);
+          })
+        } else {
+          res.json().then((data) => {
+            console.log(res.error.message);
+          })
+        }
+    })
     setItems((state) => [
       ...state,
-      item
-    ])
+      {
+        money: money,
+        desc: desc,
+        category: category
+      }
+    ]);
   }
 
   return (
