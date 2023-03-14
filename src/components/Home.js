@@ -11,10 +11,19 @@ const Home = () => {
   const [money, setMoney] = useState('');
   const [desc, setDesc] = useState('');
   const [category, setCategory] = useState('');
+  const [totalMoney, setTotalMoney] = useState(0);
 
   useEffect(() => {
     getItems();
   }, [money, desc, category])
+
+  useEffect(() => {
+    let temp = 0;
+    items.forEach((item) => {
+      temp += parseInt(item.money);
+    })
+    setTotalMoney(temp);
+  })
 
   const getItems = async () => {
     await fetch('https://react-movies-8029a-default-rtdb.asia-southeast1.firebasedatabase.app/expense.json')
@@ -125,14 +134,6 @@ const Home = () => {
           })
         }
     })
-    /* setItems((state) => [
-      ...state,
-      {
-        money: money,
-        desc: desc,
-        category: category
-      }
-    ]); */
   }
 
   return (
@@ -168,6 +169,7 @@ const Home = () => {
             </div>
           )
         })}
+        {totalMoney > 10000 && <button className='PremiumButton'>Get Premium</button>}
       </div>
     </div>
   )
