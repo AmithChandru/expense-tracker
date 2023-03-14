@@ -1,4 +1,5 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit"
+import themeSlice from "./ThemeReducer";
 
 const initialAuthState = {
   isAuthenticated: false,
@@ -21,7 +22,7 @@ const authSlice = createSlice({
 })
 
 const store = configureStore({
-  reducer: { auth: authSlice.reducer }
+  reducer: { auth: authSlice.reducer, theme: themeSlice.reducer }
 })
 
 export const authActions = authSlice.actions;

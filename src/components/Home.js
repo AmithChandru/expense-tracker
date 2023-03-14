@@ -1,7 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
 import LoginContext from './Store/LoginContext';
+import { themeActions } from './Store/ThemeReducer';
 
 const Home = () => {
 
@@ -12,6 +14,8 @@ const Home = () => {
   const [desc, setDesc] = useState('');
   const [category, setCategory] = useState('');
   const [totalMoney, setTotalMoney] = useState(0);
+  const isPremium = useSelector(state => state.theme.isPremium);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     getItems();
@@ -136,6 +140,14 @@ const Home = () => {
     })
   }
 
+  const handlePremiumClick = () => {
+    dispatch(themeActions.setPremium());
+  }
+
+  const handleDownloadClick = () => {
+    const blob = new Blob([items]);
+  }
+
   return (
     <div className='HomeContainer'>
       <div className="HomeHeader">
@@ -169,7 +181,8 @@ const Home = () => {
             </div>
           )
         })}
-        {totalMoney > 10000 && <button className='PremiumButton'>Get Premium</button>}
+        {totalMoney > 10000 && !isPremium && <button className='PremiumButton2' onClick={handlePremiumClick}>Get Premium</button>}
+        <button className='DownloadButton' onClick={handleDownloadClick}>Download Expenses</button>
       </div>
     </div>
   )
